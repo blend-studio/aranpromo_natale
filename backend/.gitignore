@@ -1,0 +1,20 @@
+# Dipendenze Composer
+/vendor/
+
+# Variabili d'Ambiente (CRITICO: contiene password DB e SMTP!)
+.env
+
+# Log di errore
+error_log
+*.log
+
+# File di sistema Mac/Windows
+.DS_Store
+Thumbs.db
+
+# IDE (opzionale)
+.idea/
+.vscode/
+
+# Se vuoi ignorare il lock file (sconsigliato per app finali, ma a volte utile in dev)
+# composer.lock
