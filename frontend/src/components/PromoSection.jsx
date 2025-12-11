@@ -1,80 +1,134 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Tv, CheckCircle, Zap } from 'lucide-react';
+import { Tv, Check, Flame, Zap, ChefHat, Droplets, ThermometerSnowflake } from 'lucide-react';
 
 const PromoSection = () => {
+  // Varianti per l'entrata degli elementi
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.2 }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 30, opacity: 0 },
+    visible: { 
+      y: 0, 
+      opacity: 1, 
+      transition: { type: "spring", stiffness: 80 } 
+    }
+  };
+
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
+    <section className="py-24 bg-aranBeige text-aranBlack relative overflow-hidden">
       <div className="container mx-auto px-4">
         
-        <div className="text-center mb-16 max-w-2xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-black text-aranBlack mb-4 tracking-tight">
-            NON UN SEMPLICE <span className="text-aranRed">REGALO</span>
-          </h2>
-          <p className="text-gray-500 text-lg">
-            Abbiamo pensato a tutto noi. La tua cucina sarà completa di tutto, senza costi aggiuntivi.
+        {/* Header Sezione */}
+        <div className="text-center mb-20">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-5xl md:text-7xl font-modern mb-4"
+          >
+            Il Natale Aran
+          </motion.h2>
+          <motion.div 
+            initial={{ width: 0 }}
+            whileInView={{ width: 100 }}
+            viewport={{ once: true }}
+            className="h-1 bg-aranRed mx-auto"
+          ></motion.div>
+          <p className="mt-6 text-xl font-sans font-light max-w-2xl mx-auto">
+            Non solo una cucina, ma un pacchetto completo per la tua casa.
+            
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        {/* Griglia Benefit */}
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
           
-          {/* TV Image with Glow */}
+          {/* Card TV (Evidenziata) */}
           <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="relative group"
+            variants={itemVariants}
+            className="lg:col-span-2 bg-white p-8 md:p-12 rounded-none shadow-xl flex flex-col md:flex-row items-center gap-8 border-l-4 border-aranRed relative overflow-hidden group"
           >
-             <div className="absolute inset-0 bg-gradient-to-tr from-blue-500 to-purple-500 rounded-full blur-[80px] opacity-20 group-hover:opacity-40 transition-opacity duration-700"></div>
-             <img 
-               src="https://images.samsung.com/is/image/samsung/p6pim/it/ue50cu7170uxzt/gallery/it-crystal-uhd-cu7000-ue50cu7170uxzt-536480579?$684_547_PNG$" 
-               alt="Samsung TV" 
-               className="relative z-10 w-full drop-shadow-2xl transform group-hover:-translate-y-2 transition-transform duration-500"
-             />
-             <div className="absolute top-0 right-0 bg-aranBlack text-white px-4 py-2 font-bold text-xs uppercase tracking-widest rounded-bl-xl shadow-lg">
-                Valore €549
+             <div className="absolute top-0 right-0 bg-aranRed text-white text-xs font-bold px-3 py-1 uppercase tracking-widest">
+                ESCLUSIVA NATALE 2025
+             </div>
+             <div className="w-full md:w-1/2">
+                <motion.img 
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.5 }}
+                  src="src/assets/it-qled-qef1-qe50qef1auxzt-546734855.png" 
+                  alt="Samsung TV" 
+                  className="w-full object-contain drop-shadow-2xl"
+                />
+             </div>
+             <div className="w-full md:w-1/2 text-left">
+                <h3 className="text-4xl font-modern mb-2">Smart TV Samsung 50"</h3>
+                <p className="text-gray-600 mb-6 font-sans">
+                  Goditi le feste con una risoluzione cristallina. La tecnologia Crystal Processor 4K regala sfumature di colore realistiche per un'esperienza visiva potente.
+                </p>
+                <ul className="space-y-2 font-sans text-sm font-bold text-aranBlack">
+                  <li className="flex items-center gap-2"><Check className="text-aranRed" size={16}/> Risoluzione 4K UHD</li>
+                  <li className="flex items-center gap-2"><Check className="text-aranRed" size={16}/> Design AirSlim</li>
+                  <li className="flex items-center gap-2"><Check className="text-aranRed" size={16}/> Compatibile con Alexa e Google</li>
+                </ul>
              </div>
           </motion.div>
 
-          {/* Benefits List */}
-          <div className="space-y-6">
-             <BenefitItem 
-               icon={<Tv className="w-6 h-6 text-white" />} 
-               title="Samsung Crystal UHD 50''"
-               desc="Risoluzione 4K, Smart TV integrata e colori cristallini. Il centro del tuo intrattenimento domestico è incluso."
-               color="bg-blue-600"
-             />
-             <BenefitItem 
-               icon={<Zap className="w-6 h-6 text-white" />} 
-               title="Kit 4 Elettrodomestici"
-               desc="Piano cottura, forno multifunzione, frigorifero combinato e lavastoviglie. Tutto marchiato e garantito."
-               color="bg-aranRed"
-             />
-             <BenefitItem 
-               icon={<CheckCircle className="w-6 h-6 text-white" />} 
-               title="Progettazione Inclusa"
-               desc="I nostri interior designer studieranno la soluzione perfetta per i tuoi spazi, gratuitamente."
-               color="bg-aranBlack"
-             />
+          {/* Lista Elettrodomestici */}
+          <div className="space-y-6 flex flex-col justify-center">
+             <ApplianceCard icon={<Flame/>} title="Piano Cottura" desc="Gas o Induzione di ultima generazione." />
+             <ApplianceCard icon={<ChefHat/>} title="Forno Multifunzione" desc="Cottura uniforme per i tuoi dolci natalizi." />
+             <ApplianceCard icon={<ThermometerSnowflake/>} title="Frigorifero" desc="Combinato no-frost, spazioso ed efficiente." />
+             <ApplianceCard icon={<Droplets/>} title="Lavastoviglie" desc="Silenziosa e a basso consumo energetico." />
           </div>
 
-        </div>
+        </motion.div>
+
+        {/* Footer Promo */}
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="mt-20 text-center"
+        >
+           <p className="text-aranBlack font-modern text-2xl mb-2">
+             Tutto questo è incluso nel prezzo della tua cucina.
+           </p>
+           <div className="inline-flex items-center gap-2 bg-aranRed text-white px-6 py-2 rounded-full shadow-lg">
+              <Flame size={18} className="animate-pulse" />
+              <span className="font-sans font-bold uppercase tracking-widest text-sm">Offerta valida solo per le prime 15 Cucine</span>
+           </div>
+        </motion.div>
+
       </div>
     </section>
   );
 };
 
-const BenefitItem = ({ icon, title, desc, color }) => (
+// Componente Card Elettrodomestico Semplice
+const ApplianceCard = ({ icon, title, desc }) => (
   <motion.div 
-    whileHover={{ x: 10 }}
-    className="flex items-start gap-5 p-6 rounded-2xl bg-gray-50 hover:bg-white hover:shadow-xl border border-transparent hover:border-gray-100 transition-all duration-300"
+    variants={{ hidden: { x: 50, opacity: 0 }, visible: { x: 0, opacity: 1 } }}
+    className="bg-white p-6 shadow-md hover:shadow-lg transition-shadow border-b-2 border-transparent hover:border-aranRed group flex items-start gap-4"
   >
-    <div className={`shrink-0 p-4 rounded-xl shadow-lg ${color}`}>
+    <div className="p-3 bg-aranBeige text-aranBlack rounded-full group-hover:bg-aranRed group-hover:text-white transition-colors">
       {icon}
     </div>
     <div>
-      <h3 className="text-xl font-bold text-gray-900 mb-2">{title}</h3>
-      <p className="text-gray-600 leading-relaxed">{desc}</p>
+      <h4 className="font-modern text-xl mb-1">{title}</h4>
+      <p className="text-sm text-gray-500 font-sans">{desc}</p>
     </div>
   </motion.div>
 );

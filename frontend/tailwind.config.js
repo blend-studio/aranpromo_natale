@@ -9,9 +9,11 @@ export default {
       colors: {
         aranRed: '#8B0000',
         aranBlack: '#1a1a1a',
+        aranBeige: '#e5e0da', // Il colore richiesto
       },
       fontFamily: {
         sans: ['Avenir', 'Nunito', 'sans-serif'],
+        modern: ['ModernNo20', 'serif'], // Il font richiesto
       },
     },
   },

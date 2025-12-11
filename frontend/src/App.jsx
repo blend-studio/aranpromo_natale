@@ -39,15 +39,21 @@ const App = () => {
       
       <PromoSection />
 
-      {/* Sezione Contatto Finale */}
-      <section className="py-20 bg-gray-50">
+     {/* Sezione Contatto Finale - SFONDO AGGIORNATO */}
+      <section className="py-20 bg-aranBeige"> 
         <div className="container mx-auto px-4 max-w-4xl">
-           <div className="bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row">
-              <div className="bg-aranRed p-10 text-white md:w-2/5 flex flex-col justify-center">
-                 <h3 className="text-3xl font-black mb-4">BLOCCA L'OFFERTA ORA</h3>
-                 <p className="opacity-90 mb-6">Compila il modulo per riservare uno dei {scarcityCount} pacchetti promozionali rimasti.</p>
-                 <div className="w-16 h-1 bg-white opacity-50"></div>
+           <div className="bg-white rounded-none shadow-2xl overflow-hidden flex flex-col md:flex-row">
+              <div className="bg-aranBlack p-10 text-white md:w-2/5 flex flex-col justify-center relative overflow-hidden">
+                 {/* Decorazione Neve nel form */}
+                 <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/snow.png')]"></div>
+                 
+                 <h3 className="text-4xl font-modern mb-4 relative z-10">Blocca l'offerta</h3>
+                 <p className="opacity-90 mb-6 font-sans font-light relative z-10">
+                   Compila il modulo per riservare uno dei 3 pacchetti promozionali rimasti.
+                 </p>
+                 <div className="w-12 h-1 bg-aranRed"></div>
               </div>
+              
               <div className="p-8 md:w-3/5">
                  <ContactForm />
               </div>
