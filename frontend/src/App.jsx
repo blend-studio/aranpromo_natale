@@ -6,6 +6,7 @@ import { X } from 'lucide-react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import PromoSection from './components/PromoSection';
+import LocationSection from './components/LocationSection'; // <--- NUOVO IMPORT
 import Footer from './components/Footer';
 import ContactForm from './components/ContactForm';
 
@@ -33,14 +34,15 @@ const App = () => {
   return (
     <div className="font-sans antialiased text-gray-800 bg-white selection:bg-aranRed selection:text-white">
       
-      {/* Navbar rimossa come richiesto */}
+      {/* Navbar rimossa come richiesto in precedenza, o puoi rimetterla se serve */}
+      {/* <Navbar onOpenModal={() => setIsModalOpen(true)} /> */}
       
       <Hero onOpenModal={() => setIsModalOpen(true)} scarcityCount={scarcityCount} />
       
       <PromoSection />
 
-     {/* Sezione Contatto Finale - SFONDO AGGIORNATO */}
-      <section className="py-20 bg-aranBeige"> 
+      {/* Sezione Contatto Finale */}
+      <section className="py-20 bg-aranBeige">
         <div className="container mx-auto px-4 max-w-4xl">
            <div className="bg-white rounded-none shadow-2xl overflow-hidden flex flex-col md:flex-row">
               <div className="bg-aranBlack p-10 text-white md:w-2/5 flex flex-col justify-center relative overflow-hidden">
@@ -49,17 +51,19 @@ const App = () => {
                  
                  <h3 className="text-4xl font-modern mb-4 relative z-10">Blocca l'offerta</h3>
                  <p className="opacity-90 mb-6 font-sans font-light relative z-10">
-                   Compila il modulo per riservare uno dei 3 pacchetti promozionali rimasti.
+                   Compila il modulo per riservare uno dei <span className="font-bold text-aranRed">{scarcityCount}</span> pacchetti promozionali rimasti.
                  </p>
                  <div className="w-12 h-1 bg-aranRed"></div>
               </div>
-              
               <div className="p-8 md:w-3/5">
                  <ContactForm />
               </div>
            </div>
         </div>
       </section>
+
+      {/* NUOVA SEZIONE MAPPA E ORARI */}
+      <LocationSection />
 
       <Footer />
 
@@ -78,22 +82,22 @@ const App = () => {
               animate={{ scale: 1, y: 0, opacity: 1 }}
               exit={{ scale: 0.9, y: 50, opacity: 0 }}
               onClick={(e) => e.stopPropagation()} // Evita chiusura cliccando dentro
-              className="bg-white w-full max-w-lg rounded-2xl overflow-hidden shadow-2xl relative"
+              className="bg-white w-full max-w-lg rounded-none overflow-hidden shadow-2xl relative border-t-4 border-aranRed"
             >
               <button 
                 onClick={() => setIsModalOpen(false)} 
-                className="absolute top-4 right-4 z-10 p-2 bg-white/20 hover:bg-gray-100 rounded-full transition-colors text-gray-500 hover:text-aranRed"
+                className="absolute top-4 right-4 z-10 p-2 bg-white/50 hover:bg-aranRed hover:text-white rounded-full transition-all text-gray-500"
               >
                 <X size={24} />
               </button>
               
-              <div className="relative bg-aranRed h-32 flex items-center justify-center overflow-hidden">
+              <div className="relative bg-aranBeige h-32 flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/snow.png')] opacity-30"></div>
-                <h3 className="text-3xl font-black text-white relative z-10 drop-shadow-md">XMAS PROMO</h3>
+                <h3 className="text-4xl font-modern text-aranBlack relative z-10 drop-shadow-sm">XMAS PROMO</h3>
               </div>
               
               <div className="p-8">
-                <p className="text-center text-gray-500 mb-6 text-sm">Inserisci i tuoi dati per essere ricontattato senza impegno.</p>
+                <p className="text-center text-gray-500 mb-6 text-sm font-sans">Inserisci i tuoi dati per essere ricontattato senza impegno.</p>
                 <ContactForm onSuccess={() => setIsModalOpen(false)} />
               </div>
 
