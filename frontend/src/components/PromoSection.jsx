@@ -2,8 +2,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Tv, Check, Flame, Zap, ChefHat, Droplets, ThermometerSnowflake } from 'lucide-react';
 
+// Importiamo l'immagine corretta (assumendo che sia in public o assets, qui uso il path relativo corretto per Vite)
+import tvImage from '../assets/it-qled-qef1-qe50qef1auxzt-546734855.png'; 
+
 const PromoSection = () => {
-  // Varianti per l'entrata degli elementi
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -43,7 +45,6 @@ const PromoSection = () => {
           ></motion.div>
           <p className="mt-6 text-xl font-sans font-light max-w-2xl mx-auto">
             Non solo una cucina, ma un pacchetto completo per la tua casa.
-            
           </p>
         </div>
 
@@ -53,10 +54,12 @@ const PromoSection = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          // MODIFICA QUI: md:grid-cols-1 invece di 2. lg:grid-cols-3 per desktop.
+          // In questo modo su iPad (md) rimangono impilati uno sotto l'altro.
+          className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-8"
         >
           
-          {/* Card TV (Evidenziata) */}
+          {/* Card TV (Evidenziata) - Occupa 2 colonne su desktop, ma 1 su mobile/tablet */}
           <motion.div 
             variants={itemVariants}
             className="lg:col-span-2 bg-white p-8 md:p-12 rounded-none shadow-xl flex flex-col md:flex-row items-center gap-8 border-l-4 border-aranRed relative overflow-hidden group"
@@ -68,7 +71,7 @@ const PromoSection = () => {
                 <motion.img 
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.5 }}
-                  src="src/assets/it-qled-qef1-qe50qef1auxzt-546734855.png" 
+                  src={tvImage} 
                   alt="Samsung TV" 
                   className="w-full object-contain drop-shadow-2xl"
                 />
