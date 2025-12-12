@@ -10,10 +10,7 @@ const Footer = () => {
         <div>
           <h4 className="text-2xl font-black mb-6">ARAN <span className="text-aranRed">PIACENZA</span></h4>
           <p className="text-gray-400 mb-4">Design italiano, qualità artigianale e tecnologia. Da oltre 50 anni arrediamo le case più belle del mondo.</p>
-          <div className="flex gap-4">
-            <a href="#" className="p-2 bg-white/10 rounded hover:bg-aranRed transition-colors"><Facebook size={20} /></a>
-            <a href="#" className="p-2 bg-white/10 rounded hover:bg-aranRed transition-colors"><Instagram size={20} /></a>
-          </div>
+         
         </div>
 
         {/* Colonna 2 - Contatti */}
@@ -24,10 +21,7 @@ const Footer = () => {
                <MapPin className="text-aranRed shrink-0" size={20} />
                <span>Via Roma, 24, 29010<br/>Pontenure (PC)</span>
              </li>
-             <li className="flex items-center gap-3">
-               <Phone className="text-aranRed shrink-0" size={20} />
-               <a href="tel:0523718895" className="hover:text-white">0523 718895</a>
-             </li>
+           
            </ul>
         </div>
 

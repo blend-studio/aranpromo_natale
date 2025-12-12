@@ -51,7 +51,7 @@ const App = () => {
                  
                  <h3 className="text-4xl font-modern mb-4 relative z-10">Blocca l'offerta</h3>
                  <p className="opacity-90 mb-6 font-sans font-light relative z-10">
-                   Compila il modulo per riservare uno dei <span className="font-bold text-aranRed">{scarcityCount}</span> pacchetti promozionali rimasti.
+                   Compila il modulo per riservare uno dei 15 pacchetti promozionali rimasti.
                  </p>
                  <div className="w-12 h-1 bg-aranRed"></div>
               </div>
