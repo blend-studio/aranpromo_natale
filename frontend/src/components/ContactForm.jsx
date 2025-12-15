@@ -3,7 +3,7 @@ import { Send, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
 
 const ContactForm = ({ onSuccess, className }) => {
   // Sostituisci con il percorso reale del tuo file public/index.php
-  const API_URL = "http://localhost:8000/api/contact"; 
+  const API_URL = "https://piacenza.arancucine.it/promo/backend/public/index.php/api/contact"; 
 
   const [formData, setFormData] = useState({
     nome: '', cognome: '', email: '', telefono: '', messaggio: ''
