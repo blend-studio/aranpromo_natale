@@ -60,8 +60,8 @@ const Hero = ({ onOpenModal }) => {
         </motion.div>
 
         {/* CONTENUTO CENTRALE */}
-        {/* Aggiunto pb-12/pb-24 su mobile per dare spazio al banner in fondo senza tagliare */}
-        <div className="flex-grow flex flex-col justify-center px-6 md:px-16 lg:px-12 xl:px-12 relative pt-28 pb-12 md:py-20 lg:py-0">
+        {/* Aggiunto pb-12 su mobile per dare spazio al banner; manteniamo pt su lg per evitare sovrapposizione con il logo */}
+        <div className="flex-grow flex flex-col justify-center px-6 md:px-16 lg:px-12 xl:px-12 relative pt-28 pb-12 md:py-20 lg:pt-28 lg:pb-0">
             
             {/* Blocco Titolo */}
             <motion.div 
