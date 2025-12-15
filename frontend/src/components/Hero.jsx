@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Flame } from 'lucide-react';
-import bgImage from '../assets/24.jpg';
+import bgImage from '../assets/67_BIJOU.webp';
 import logoBianco from '../assets/logo-bianco.svg';
 import tvImage from '../assets/it-qled-qef1-qe50qef1auxzt-546734855.png'; 
 
@@ -182,24 +182,24 @@ const Hero = ({ onOpenModal }) => {
       {/* 4. CERCHI ELETTRODOMESTICI A DESTRA (Solo Desktop XL) */}
       <div className="hidden xl:flex flex-col justify-center gap-6 absolute right-8 top-0 bottom-0 z-10 py-10">
           {sideImages.map((img, i) => (
-             <motion.div 
-               key={i} 
-               initial={{ scale: 0, opacity: 0 }}
-               animate={{ 
-                 scale: 1, 
-                 opacity: 1,
-                 y: [0, -10, 0] 
-               }}
-               transition={{ 
-                 scale: { type: "spring", stiffness: 260, damping: 20, delay: 0.1 + (i * 0.1) },
-                 opacity: { duration: 0.2, delay: 0.1 + (i * 0.1) },
-                 y: { duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 + (i * 0.5) } 
-               }}
-               className="w-28 h-28 rounded-full border-4 border-white/80 bg-white overflow-hidden shadow-2xl hover:scale-110 transition-transform duration-300 relative group"
-             >
-                <img src={img} alt={`Elettrodomestico ${i+1}`} className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-aranRed/0 group-hover:bg-aranRed/20 transition-colors duration-300"></div>
-             </motion.div>
+                         <motion.div 
+                             key={i} 
+                             initial={{ scale: 0, opacity: 0 }}
+                             animate={{ 
+                                 scale: 1, 
+                                 opacity: 1,
+                                 y: [0, -10, 0] 
+                             }}
+                             transition={{ 
+                                 scale: { type: "spring", stiffness: 260, damping: 20, delay: 0.1 + (i * 0.1) },
+                                 opacity: { duration: 0.2, delay: 0.1 + (i * 0.1) },
+                                 y: { duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 + (i * 0.5) } 
+                             }}
+                             className="w-28 h-28 rounded-full border-4 border-white/80 bg-aranRed overflow-hidden shadow-2xl hover:scale-110 transition-transform duration-300 relative group flex items-center justify-center"
+                         >
+                                <img src={img} alt={`Elettrodomestico ${i+1}`} className="w-3/4 h-3/4 object-contain" />
+                                <div className="absolute inset-0 bg-aranRed/0 group-hover:bg-aranRed/20 transition-colors duration-300"></div>
+                         </motion.div>
           ))}
       </div>
 
